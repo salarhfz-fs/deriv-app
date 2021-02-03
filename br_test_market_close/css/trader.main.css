@@ -1425,6 +1425,8 @@
   padding: 0;
   background-image: var(--contract-gradient-danger);
   z-index: 1000; }
+  .contract-card__market-closed__title {
+    margin-bottom: 1rem; }
   .contract-card__market-closed--loading {
     display: none; }
   .contract-card__market-closed--disabled {
