@@ -8026,8 +8026,7 @@
     .dc-dialog__content .dc-input__label {
       background-color: var(--general-main-2); }
     .dc-dialog__content--centered {
-      align-self: center;
-      text-align: center; }
+      align-self: center; }
   .dc-dialog__footer {
     display: flex;
     justify-content: flex-end;
@@ -8037,8 +8036,6 @@
       .dc-dialog__footer {
         flex-wrap: wrap;
         align-items: flex-start; } }
-    .dc-dialog__footer--centered {
-      justify-content: center; }
   .dc-dialog__button {
     margin-left: 0.8rem; }
     @media (min-width: 320px) and (max-width: 767px) {
@@ -11153,8 +11150,6 @@
             position: absolute; } }
       .dc-modal-header--is-title-centered .dc-modal-header__close {
         z-index: 1; }
-    .dc-modal-header--no-border {
-      border-bottom: none; }
     @media not all and (min-resolution: 0.001dpcm) {
       @supports (-webkit-appearance: none) {
         .dc-modal-header {
@@ -18051,7 +18046,8 @@
         align-items: center; } }
   @media (min-width: 1024px) {
     .status-dialog {
-      min-width: 440px; } }
+      min-width: 440px;
+      height: 304px; } }
   @media (min-width: 320px) and (max-width: 767px) {
     .status-dialog {
       justify-content: flex-start;
@@ -18703,6 +18699,8 @@
       text-transform: none; }
   .account-wizard--disabled {
     position: relative; }
+    .account-wizard--disabled .currency-list__items {
+      margin-top: 6rem; }
     .account-wizard--disabled h2,
     .account-wizard--disabled p {
       color: var(--text-disabled); }
@@ -18727,6 +18725,15 @@
         line-height: 1.5;
         width: 78%;
         text-align: center; }
+      .account-wizard--disabled-message p:first-child {
+        margin-top: 6rem;
+        background-color: var(--general-section-1);
+        font-size: 1.2rem;
+        height: 58px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px; }
   @media (min-width: 320px) and (max-width: 767px) {
     .account-wizard--error {
       margin-top: 40px;
@@ -18792,7 +18799,18 @@
     margin-bottom: 1rem; }
   .add-crypto-currency__button,
   .change-currency__button {
-    margin-top: 1.6rem; }
+    margin-top: 1.6rem;
+    width: 100%; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .add-crypto-currency .dc-form-submit-button,
+    .change-currency .dc-form-submit-button {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      padding: 1.5rem; }
+    .add-crypto-currency .dc-btn,
+    .change-currency .dc-btn {
+      width: 100%; } }
 
 /* TODO: [refactor-components] Refactor form subheader to components */
 .account-form__header {
