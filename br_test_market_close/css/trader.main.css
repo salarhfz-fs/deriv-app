@@ -2363,6 +2363,15 @@
   .market-is-closed-overlay__button {
     height: 40px;
     margin-top: 1rem; }
+  @media (min-width: 320px) and (max-width: 767px) {
+    .market-is-closed-overlay {
+      position: unset;
+      top: unset;
+      left: unset;
+      overflow-y: scroll;
+      padding-top: 16rem; }
+      .market-is-closed-overlay__button {
+        min-height: 4rem; } }
 
 /** @define .market-symbol-icon; weak */
 .market-symbol-icon {
