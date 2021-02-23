@@ -2001,12 +2001,18 @@
     .dc-btn--primary .dc-btn__text,
     .dc-btn--primary .dc-btn__icon {
       color: var(--text-colored-background); }
-  .dc-btn--dashboard-primary {
-    background: var(--dashboard-primary); }
-    .dc-btn--dashboard-primary:hover:not([disabled]) {
-      background: var(--dashboard-hover); }
-    .dc-btn--dashboard-primary:active:not([disabled]) {
-      background: var(--dashboard-primary); }
+    .dc-btn--primary__light {
+      background: var(--button-primary-light-default); }
+      .dc-btn--primary__light:hover:not([disabled]) {
+        background: var(--button-primary-light-hover); }
+      .dc-btn--primary__light:active:not([disabled]) {
+        background: var(--button-primary-light-default); }
+      .dc-btn--primary__light:disabled, .dc-btn--primary__light[disabled] {
+        opacity: 0.32;
+        cursor: not-allowed !important; }
+      .dc-btn--primary__light .dc-btn__text,
+      .dc-btn--primary__light .dc-btn__icon {
+        color: var(--brand-red-coral); }
   .dc-btn--secondary {
     background: transparent;
     border: 1px solid var(--button-secondary-default); }
@@ -2032,11 +2038,6 @@
     .dc-btn--tertiary:disabled, .dc-btn--tertiary[disabled] {
       opacity: 0.32;
       cursor: not-allowed !important; }
-  .dc-btn--dashboard-tertiary:hover:not([disabled]) {
-    background: var(--dashboard-alpha); }
-  .dc-btn--dashboard-tertiary .dc-btn__text,
-  .dc-btn--dashboard-tertiary .dc-btn__icon {
-    color: var(--dashboard-primary); }
   .dc-btn--alternate {
     background: var(--button-tertiary-default);
     border: 2px solid var(--button-primary-default); }
@@ -11101,7 +11102,7 @@
     line-height: 24px;
     align-items: center; }
     .dc-modal-header__border-bottom {
-      border-bottom: 2px solid var(--general-section-2); }
+      border-bottom: 2px solid var(--general-section-2) !important; }
     .dc-modal-header__title {
       font-size: 1.6rem;
       color: var(--text-general);
@@ -17119,128 +17120,6 @@
 /**
  * Define Breakpoints here.
  */
-.modal-login-prompt {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
-  color: var(--text-general); }
-  .modal-login-prompt h2 {
-    font-size: var(--text-size-s);
-    font-weight: 700;
-    line-height: 24px;
-    margin-bottom: 8px; }
-  .modal-login-prompt p {
-    font-size: var(--text-size-xs);
-    line-height: 20px;
-    margin: 8px 0 16px; }
-  .modal-login-prompt .dc-btn {
-    margin: 8px 4px; }
-
-/*------------------------------------*
- *  # Constants
- *------------------------------------*/
-/* stylelint-disable color-no-hex */
-/* COLOR PALETTE */
-/* colors */
-/* alpha colors */
-/* gradient colors */
-/* Preserve legacy variables */
-/* Primary */
-/* stylelint-enable color-no-hex */
-/* Wallet gradient background */
-/* App Cards gradient background */
-/*------------------------------------*
- *  # SASS Mixins and Functions
- *------------------------------------*/
-/*
- * SASS interpolation
- */
-/*
- * PX to EM
- * @param $px - px value to be converted
- * @param $base - base font size (in `em`)
- * Note: 'em' values are calculate based on the element font-size
- *       to properly converts 'px' to 'em', please pass in the element font-size with it
- * Usage example:
-    padding: em(16px, 1.6em); // font-size in 'em'
- */
-/*
- * Set property by passing a property name, and values.
- * @param $property name - padding, margin etc.
- * @param $values        - values in `px` (space separated for multiple values)
- * @param $font-size     - base font-size in `em`
- * Usage example:
-   @include toEm(padding, 8px 16px 8px, 1.6em);
- */
-/*
- * Generate typefaces key-value pair of variable name and config
- * Example:
-   --paragraph-center-bold-black: (14px, center, bold, black)
- */
-/*
- * Sets font-size, font-weight, color, text-transform, text-align and line-height
- * Usage example:
-   @include setTypeface(16px, bold, black, uppercase);
- */
-/*
- * Set typefaces by passing a typeface variable name
- * @param $var   - typeface variable
- * @param $tt    - text-transform property
- * @param $align - text-align property
- * Usage example:
-   @include typeface(--paragraph-bold-black, uppercase, center);
- */
-/*
- * Range Slider Thumb styling is set here
- */
-/*
- * SVG icons colors
- */
-/*
- * Bar Spinner Animation
- * @param $count    - number of bars
- * @param $duration - duration of animation
- * @param $phase    - each bar phase change delay
- * Usage example:
-   @include createBarspinnerAnimation(5, 1.2s, 0,1);
- */
-/*
- * Tooltip colors
- * @param $color - color property
- * Usage example:
-   @include tooltipColor($COLOR_RED);
- */
-/*
- * Convert Tooltip colors
- * @param $color - css color property
- * Usage example:
-   @include convertTooltipColor(var(--status-default));
- */
-/*
-    Constants
-*/
-/*
-    Variables
-*/
-/*
-    List of all typefaces variables in the format: --$FONT_SIZES-$TEXT_ALIGN-$FONT_WEIGHTS-COLORS.
-    See $FONT_SIZES, $TEXT_ALIGN, $FONT_WEIGHTS, $COLORS maps above for references.
-    Variables name example: --title-center-semibold-red
- */
-/*
-    to use styles without modifier class on .inline-icon
-    use @extend
-
-    e.g. style icon on parent hover:
-        a:hover .inline-icon {
-            @extend %inline-icon.active;
-        }
-*/
-/**
- * Define Breakpoints here.
- */
 .terms-of-use {
   display: flex;
   flex-direction: column;
@@ -19792,9 +19671,11 @@ strong {
     --button-primary-default: var(--brand-red-coral);
     --button-secondary-default: #999999;
     --button-tertiary-default: transparent;
+    --button-primary-light-default: rgba(255, 68, 79, 0.16);
     --button-primary-hover: #eb3e48;
     --button-secondary-hover: rgba(0, 0, 0, 0.08);
     --button-tertiary-hover: rgba(255, 68, 79, 0.08);
+    --button-primary-light-hover: rgba(255, 68, 79, 0.24);
     --button-toggle-primary: #0796e0;
     --button-toggle-secondary: #d6dadb;
     --overlay-outside-dialog: rgba(0, 0, 0, 0.72);
@@ -19822,9 +19703,6 @@ strong {
     --status-warning: #ffad3a;
     --status-info: #377cfc;
     --status-colored-background: #ffffff;
-    --dashboard-primary: #0796e0;
-    --dashboard-hover: #0677af;
-    --dashboard-alpha: rgba(7, 150, 224, 0.16);
     --dashboard-swap-free: linear-gradient(58.51deg, #061828 28.06%, #1a3c60 93.51%);
     --dashboard-app: linear-gradient(274.25deg, #333333 9.01%, #5c5b5b 103.31%);
     --payment-skrill: linear-gradient(274.73deg, #5a205d 3.82%, #7f3883 88.49%);
@@ -19880,9 +19758,11 @@ strong {
     --button-primary-default: var(--brand-red-coral);
     --button-secondary-default: #6e6e6e;
     --button-tertiary-default: transparent;
+    --button-primary-light-default: rgba(255, 68, 79, 0.16);
     --button-primary-hover: #eb3e48;
     --button-secondary-hover: rgba(255, 255, 255, 0.08);
     --button-tertiary-hover: rgba(255, 68, 79, 0.08);
+    --button-primary-light-hover: rgba(255, 68, 79, 0.24);
     --button-toggle-primary: #0796e0;
     --button-toggle-secondary: #323738;
     --overlay-outside-dialog: rgba(0, 0, 0, 0.72);
@@ -19910,9 +19790,6 @@ strong {
     --status-success: #00a79e;
     --status-info: #377cfc;
     --status-colored-background: #ffffff;
-    --dashboard-primary: #2a3052;
-    --dashboard-hover: #0796e0;
-    --dashboard-alpha: rgba(7, 150, 224, 0.16);
     --transparent-success: rgba(0, 167, 158, 0.92);
     --transparent-info: rgba(55, 124, 252, 0.16);
     /* TODO: change to styleguide later */
